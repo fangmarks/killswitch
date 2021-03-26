@@ -22,13 +22,5 @@
     "declaration": true
   },
   "include": ["**/*"],
-  "exclude": [
-    "node_modules",
-    "build",
-    "out",
-    "tmp",
-    "logs",
-    "test",
-    "./ConfigManager.ts"
-  ]
+  "exclude": ["node_modules", "build", "out", "tmp", "logs", "test"]
 }

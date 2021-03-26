@@ -15,29 +15,29 @@ async function handler(req: Request, res: Response) {
     let apikey = req.body.apikey || req.query.apikey
     let limit = Number(req.body.limit) || Number(req.query.limit)
     let useragent = req.body.useragent
+    if (isNaN(limit)) {
+        limit = 1
+    } else {
+        limit = limit
+    }
 
     let response;
-    console.log(
-        {
-            tags,
-            apikey,
-            limit,
-            useragent
-        }
-    )
+
     try {
         response = await request("e621", {
             tags,
             apikey,
             limit,
-            // useragent
+            useragent
         })
 
     } catch (error) {
-        console.error("Encountered an Error", error)
+        // console.error("Encountered an Error", error)
         response = {
             success: false,
-            error
+            error: {
+                msg: error.message
+            }
         }
     }
     res.send(response)
