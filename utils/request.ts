@@ -10,6 +10,7 @@ export default async function request(url: string, options:
         apikey?: string,
         limit?: number,
         useragent?: string
+        animal?: string
     }) {
 
     switch (url) {
@@ -72,6 +73,18 @@ export default async function request(url: string, options:
                 }
             })
             return floofyreq.data
+        case 'shibe':
+            let shibereq = await axios({
+                method: 'get',
+                url: `${c.shibe}/${options.animal}?count=1&urls=true&httpsUrls=true`,
+                headers: {
+                    "User-Agent": `${c.useragent} ${options.useragent || ""}`,
+                    // ...(options.apikey ? {
+                    //     "Authorization": options.apikey
+                    // } : {})
+                }
+            })
+            return shibereq.data
 
 
         default:

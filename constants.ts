@@ -6,5 +6,6 @@ export default {
     // "r34": "https://rule34.xxx/index.php?page=dapi&s=post&q=index",
     yiffrest: "https://yiff.rest/V2",
     floofy: "https://api.floofy.dev",
+    shibe: "https://shibe.online/api/",
     useragent: `Killswitch/v${pkg.version} (wrwlf.de/killswitch)`
 }
