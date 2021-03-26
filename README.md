@@ -8,8 +8,8 @@ Supported Sites:
 - [x] e926.net
 - [x] yiff.rest
 - [x] api.floofy.dev
-- [ ] shibe.online
-- [ ] randomfox.ca
+- [x] shibe.online
+- [x] randomfox.ca
 - [ ] sheri.bot
 
 If you don't see a site that's supported yet, but should be, open an Issue!

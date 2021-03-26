@@ -7,5 +7,6 @@ export default {
     yiffrest: "https://yiff.rest/V2",
     floofy: "https://api.floofy.dev",
     shibe: "https://shibe.online/api/",
+    fox: "https://randomfox.ca/floof/",
     useragent: `Killswitch/v${pkg.version} (wrwlf.de/killswitch)`
 }

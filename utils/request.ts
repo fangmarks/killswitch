@@ -85,6 +85,18 @@ export default async function request(url: string, options:
                 }
             })
             return shibereq.data
+        case 'fox':
+            let randomfoxreq = await axios({
+                method: 'get',
+                url: `${c.fox}`,
+                headers: {
+                    "User-Agent": `${c.useragent} ${options.useragent || ""}`,
+                    // ...(options.apikey ? {
+                    //     "Authorization": options.apikey
+                    // } : {})
+                }
+            })
+            return randomfoxreq.data
 
 
         default:
