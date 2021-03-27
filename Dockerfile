@@ -1,0 +1,20 @@
+FROM node:alpine
+WORKDIR /opt/killswitch
+
+ARG PORT
+ARG REDIRECT
+ARG LOG_PATH
+ARG ERROR_LOG_PATH
+
+ENV PORT=${PORT}
+ENV REDIRECT=${REDIRECT}
+ENV LOG_PATH=${LOG_PATH}
+ENV ERROR_LOG_PATH=${ERROR_LOG_PATH}
+
+EXPOSE ${PORT}
+
+COPY . .
+RUN npm i
+RUN npm run build
+
+ENTRYPOINT [ "npm", "run", "start" ]
