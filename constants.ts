@@ -14,6 +14,6 @@ export default {
     port: process.env.PORT || 3000,
     log: 'killswitch.log',
     error: 'killswitch.error.log',
-    redirect: process.env.REDIRECT || 'https://himbo.cat'
+    redirect: process.env.REDIRECT || 'https://github.com/hokkqi/killswitch/wiki'
 
 }

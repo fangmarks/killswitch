@@ -26,7 +26,7 @@ Setting up a Killswitch Instance is as easy as running
 sudo docker run -p 42069:3000 -d hokkqi/killswitch
 ```
 
-**NOTE:** By default, Killswitch redirects to [himbo.cat](https://himbo.cat) if no `REDIRECT` Environment Variable is provided.
+**NOTE:** By default, Killswitch redirects to [the Wiki] if no `REDIRECT` Environment Variable is provided.
 
 ## Building the Docker Image yourself (with custom options)
 
@@ -55,4 +55,6 @@ ts-node index.ts
 
 # Docs
 
-For Docs, see [the Wiki](https://github.com/hokkqi/killswitch/wiki)
+For Docs, see [the Wiki]
+
+[the wiki]: https://github.com/hokkqi/killswitch/wiki
