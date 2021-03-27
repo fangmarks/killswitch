@@ -12,12 +12,17 @@ async function handler(req: Request, res: Response) {
 
     let useragent = req.body.useragent
     let animal = req.body.animal || req.query.animal
-
+    let limit = Number(req.body.limit) || Number(req.query.limit)
+    if (isNaN(limit)) {
+        limit = 1
+    } else {
+        limit = limit
+    }
     let response;
 
     try {
         response = await request("shibe", {
-            useragent, animal
+            useragent, animal, limit
         })
 
     } catch (error) {

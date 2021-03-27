@@ -12,8 +12,8 @@ export default {
     useragent: `Killswitch/v${pkg.version} (wrwlf.de/killswitch)`,
     // "r34": "https://rule34.xxx/index.php?page=dapi&s=post&q=index",
     port: process.env.PORT || 3000,
-    log: process.env.LOG_PATH || 'killswitch.log',
-    error: process.env.ERROR_LOG_PATH || 'killswitch.error.log',
+    log: 'killswitch.log',
+    error: 'killswitch.error.log',
     redirect: process.env.REDIRECT || 'https://himbo.cat'
 
 }

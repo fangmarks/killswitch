@@ -74,7 +74,7 @@ export default async function request(url: string, options:
         case 'shibe':
             let shibereq = await axios({
                 method: 'get',
-                url: `${c.shibe}/${options.animal}?count=1&urls=true&httpsUrls=true`,
+                url: `${c.shibe}/${options.animal}?count=${options.limit}&urls=true&httpsUrls=true`,
                 headers: {
                     "User-Agent": `${c.useragent} ${options.useragent || ""}`,
                     // ...(options.apikey ? {
