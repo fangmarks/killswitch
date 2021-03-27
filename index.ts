@@ -1,13 +1,15 @@
-import Armpits from "@sniff/armpits";
-// @ts-ignore
+//@ts-nocheck
+
 import express from 'express'
-//@ts-ignore
 import { Request, Response } from "express";
 import config from "./config"
-
-
+import path from "path"
+import fs from "fs"
 const app = new express()
 app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+import Logger from './utils/logger'
+
 
 // ! Route Imports
 import { paths as e621_paths, handler as e621_handler } from './routes/e621'
@@ -16,6 +18,7 @@ import { paths as e926_paths, handler as e926_handler } from './routes/e926'
 import { paths as floofy_paths, handler as floofy_handler } from './routes/floofy.dev'
 import { paths as shibe_paths, handler as shibe_handler } from './routes/shibe.online'
 import { paths as fox_paths, handler as fox_handler } from './routes/randomfox.ca'
+import constants from './constants';
 
 const paths = {
     e621: e621_paths,
@@ -34,10 +37,37 @@ const handlers = {
     fox: fox_handler,
 }
 
+app.use((req: Request, res: Response, next: any) => {
+    let querykey
+    let bodykey
+
+    if (req.path === '/log') return next()
+    if (req.body.apikey) {
+        bodykey = req.body.apikey
+        req.body.apikey = "Censored for Privacy"
+    }
+    if (req.query.apikey) {
+        querykey = req.query.apikey
+        req.query.apikey = "Censored for Privacy"
+    }
+    let query = req.query
+    let body = req.body
+    Logger.info(`[ ${new Date().toLocaleString()} ]`, {
+        path: req.path,
+        query, body
+    })
+
+    req.query.apikey = querykey
+    req.body.apikey = bodykey
+
+    // Armpit.info("Data: ", )
+    next()
+})
 
 app.get('/', async (req: Request, res: Response) => {
-    res.redirect(config.REDIRECT)
+    res.redirect(constants.redirect)
 })
+
 
 app.use(paths.e621, handlers.e621)
 app.use(paths.e926, handlers.e926)
@@ -45,6 +75,17 @@ app.use(paths.yiffrest, handlers.yiffrest)
 app.use(paths.floofy, handlers.floofy)
 app.use(paths.shibe, handlers.shibe)
 app.use(paths.fox, handlers.fox)
+
+app.get("/log", async (req, res) => {
+    fs.readFile(`${req.query.error ? constants.error : constants.log}`, 'utf8', function (err, data) {
+        if (err) throw err;
+        res.set({
+            'Content-Type': 'text/plain',
+        })
+
+        return res.send(data);
+    })
+})
 
 app.listen(3000, () => console.log("Listening on port 3000"))
 

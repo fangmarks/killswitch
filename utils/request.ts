@@ -1,7 +1,5 @@
 import axios from "axios"
 import c from "../constants";
-import Armpit from './logger';
-
 export default async function request(url: string, options:
     {
         endpoint?: boolean,

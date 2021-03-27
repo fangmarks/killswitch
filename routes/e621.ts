@@ -1,6 +1,6 @@
 // @ts-ignore
 import { Request, Response } from "express";
-import Armpit from "../utils/logger";
+import Logger from "../utils/logger";
 import request from "../utils/request";
 const paths = [
     '/e6',
@@ -22,7 +22,6 @@ async function handler(req: Request, res: Response) {
     }
 
     let response;
-
     try {
         response = await request("e621", {
             tags,
@@ -33,6 +32,7 @@ async function handler(req: Request, res: Response) {
 
     } catch (error) {
         // console.error("Encountered an Error", error)
+        Logger.error(error)
         response = {
             success: false,
             error: {
