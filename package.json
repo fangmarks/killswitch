@@ -1,6 +1,6 @@
 {
   "name": "killswitch",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "killswitch is a proxy api for [hokkqi/yiff](https://wrwlf.de/yiff)",
   "main": "build/index.js",
   "dependencies": {
