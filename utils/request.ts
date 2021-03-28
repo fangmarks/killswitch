@@ -59,6 +59,21 @@ export default async function request(url: string, options:
                 }
             })
             return yiffreq.data
+        case 'sheri':
+            let sherireq = await axios({
+                method: 'get',
+                params: {
+                    format: "json"
+                },
+                url: `${c.sheri}/${options.endpoint}`,
+                headers: {
+                    "User-Agent": `${c.useragent} ${options.useragent || ""}`,
+                    ...(options.apikey ? {
+                        "Authorization": options.apikey
+                    } : {})
+                }
+            })
+            return sherireq.data
         case 'floofy':
             let floofyreq = await axios({
                 method: 'get',

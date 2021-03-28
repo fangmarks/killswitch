@@ -10,9 +10,13 @@ Supported Sites:
 - [x] api.floofy.dev
 - [x] shibe.online
 - [x] randomfox.ca
-- [ ] sheri.bot
+- [x] sheri.bot
 
-If you don't see a site that's supported yet, but should be, open an Issue!
+> If you don't see a site that's supported yet, but should be, open an Issue or if you're the owner of the API, make a PR!
+
+> Please include a Link to the Documentation of the API, if possible, otherwise a Link to a Discord Server\* where I can ask questions is also ok!
+
+\*_(Don't Advertise random Servers that have noting to do with a API/Service or you'll be banned from this Repo)_
 
 # Usage
 

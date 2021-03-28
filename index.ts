@@ -18,6 +18,7 @@ import { paths as e926_paths, handler as e926_handler } from './routes/e926'
 import { paths as floofy_paths, handler as floofy_handler } from './routes/floofy.dev'
 import { paths as shibe_paths, handler as shibe_handler } from './routes/shibe.online'
 import { paths as fox_paths, handler as fox_handler } from './routes/randomfox.ca'
+import { paths as sheri_paths, handler as sheri_handler } from './routes/sheri.bot'
 import constants from './constants';
 
 const paths = {
@@ -27,6 +28,7 @@ const paths = {
     floofy: floofy_paths,
     shibe: shibe_paths,
     fox: fox_paths,
+    sheri: sheri_paths,
 }
 const handlers = {
     e621: e621_handler,
@@ -35,6 +37,7 @@ const handlers = {
     floofy: floofy_handler,
     shibe: shibe_handler,
     fox: fox_handler,
+    sheri: sheri_handler,
 }
 
 app.use((req: Request, res: Response, next: any) => {
@@ -75,6 +78,7 @@ app.use(paths.yiffrest, handlers.yiffrest)
 app.use(paths.floofy, handlers.floofy)
 app.use(paths.shibe, handlers.shibe)
 app.use(paths.fox, handlers.fox)
+app.use(paths.sheri, handlers.sheri)
 
 app.get("/log", async (req, res) => {
     fs.readFile(`${req.query.error ? constants.error : constants.log}`, 'utf8', function (err, data) {
