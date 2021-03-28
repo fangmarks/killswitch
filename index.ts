@@ -57,7 +57,8 @@ app.use((req: Request, res: Response, next: any) => {
     let body = req.body
     Logger.info(`[ ${new Date().toLocaleString()} ]`, {
         path: req.path,
-        query, body
+        query, body,
+        useragent: req.get('User-Agent')
     })
 
     req.query.apikey = querykey
