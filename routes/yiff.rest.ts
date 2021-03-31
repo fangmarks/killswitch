@@ -11,7 +11,7 @@ async function handler(req: Request, res: Response) {
     // console.log(req.body)
     // console.log(req.query)
 
-    let kind = req.body.kind || req.query.kind
+    let category = req.body.category || req.query.category
     let endpoint = req.body.endpoint || req.query.endpoint
     let apikey = req.body.apikey || req.query.apikey
 
@@ -21,7 +21,7 @@ async function handler(req: Request, res: Response) {
 
     try {
         response = await request("yiffrest", {
-            kind, endpoint,
+            category, endpoint,
             useragent, apikey
         })
 

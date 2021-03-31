@@ -3,7 +3,7 @@ import c from "../constants";
 export default async function request(url: string, options:
     {
         endpoint?: boolean,
-        kind?: string,
+        category?: string,
         tags?: string | string[],
         apikey?: string,
         limit?: number,
@@ -50,7 +50,7 @@ export default async function request(url: string, options:
         case 'yiffrest':
             let yiffreq = await axios({
                 method: 'get',
-                url: `${c.yiffrest}/${options.kind}/${options.endpoint}`,
+                url: `${c.yiffrest}/${options.category}/${options.endpoint}`,
                 headers: {
                     "User-Agent": `${c.useragent} ${options.useragent || ""}`,
                     ...(options.apikey ? {
