@@ -17,7 +17,11 @@ async function handler(req: Request, res: Response) {
 
     let useragent = req.body.useragent
     let response;
-    if (!apikey.startsWith("Token")) apikey = `Token ${apikey}`
+    if (apikey) {
+        if (!apikey.startsWith('Token')) {
+            apikey = `Token ${apikey}`
+        }
+    }
     // if (apikey) {
     // }
     try {

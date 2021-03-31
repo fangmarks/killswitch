@@ -10,7 +10,7 @@ export default {
     floofy: "https://api.floofy.dev",
     shibe: "https://shibe.online/api/",
     fox: "https://randomfox.ca/floof/",
-    sheri: "https://sheri.bot/api/",
+    sheri: "https://sheri.bot/api",
 
     // ? Config Stuff
     useragent: `Killswitch/v${pkg.version} (wrwlf.de/killswitch);`,
