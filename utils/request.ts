@@ -2,7 +2,7 @@ import axios from "axios"
 import c from "../constants";
 export default async function request(url: string, options:
     {
-        endpoint?: boolean,
+        endpoint?: string,
         category?: string,
         tags?: string | string[],
         apikey?: string,
@@ -10,6 +10,7 @@ export default async function request(url: string, options:
         useragent?: string
         animal?: string
     }) {
+
 
     switch (url) {
         case 'e621':
