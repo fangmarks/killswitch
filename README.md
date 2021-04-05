@@ -11,6 +11,7 @@ Supported Sites:
 - [x] shibe.online
 - [x] randomfox.ca
 - [x] sheri.bot
+- [x] gelbooru.com
 
 > If you don't see a site that's supported yet, but should be, open an Issue or if you're the owner of the API, make a PR!
 
