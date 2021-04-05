@@ -11,6 +11,7 @@ export default {
     shibe: "https://shibe.online/api/",
     fox: "https://randomfox.ca/floof/",
     sheri: "https://sheri.bot/api",
+    gelbooru: "https://gelbooru.com",
 
     // ? Config Stuff
     useragent: `Killswitch/v${pkg.version} (wrwlf.de/killswitch);`,

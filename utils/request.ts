@@ -29,6 +29,20 @@ export default async function request(url: string, options:
                 }
             })
             return e6request.data.posts
+        case 'gelbooru':
+            if (!options.tags) throw Error("No Tags provided")
+            console.log(`sort:random+${options.tags.toString().split(' ').join("+")}`)
+            let gelboorureq = await axios({
+                method: 'get',
+                url: `${c.gelbooru}/index.php?page=dapi&s=post&json=1&q=index&limit=${Number(options.limit) || 1}&tags=sort:random+${options.tags.toString().split(' ').join("+")}`,
+                headers: {
+                    "User-Agent": `${c.useragent} ${options.useragent || ""}`,
+                    ...(options.apikey ? {
+                        "Authorization": options.apikey
+                    } : {})
+                }
+            })
+            return gelboorureq.data
         case 'e926':
             if (!options.tags) throw Error("No Tags provided")
             let e9request = await axios({
