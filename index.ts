@@ -54,13 +54,13 @@ fs.readdir(path.join(__dirname, "routes"), (err, files) => {
 })
 
 // ! Provide App Log if wanted (main file by default, erorr if passed ?error=true)
-app.get("/log", async (req, res) => {
-    fs.readFile(`${req.query.error ? constants.error : constants.log}`, 'utf8', function (err, data) {
-        if (err) throw err;
-        res.set({ 'Content-Type': 'text/plain' })
-        return res.send(data);
-    })
-})
+//app.get("/log", async (req, res) => {
+//    fs.readFile(`${req.query.error ? constants.error : constants.log}`, 'utf8', function (err, data) {
+//        if (err) throw err;
+//        res.set({ 'Content-Type': 'text/plain' })
+//        return res.send(data);
+//   })
+//})
 
 app.listen(constants.port, () => Logger.info(`Listening on port ${constants.port}`))
 
