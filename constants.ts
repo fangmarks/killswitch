@@ -12,6 +12,7 @@ export default {
     fox: "https://randomfox.ca/floof/",
     sheri: "https://sheri.bot/api",
     gelbooru: "https://gelbooru.com",
+    thaldrin: "https://thaldr.in/api/v1",
     // "r34": "https://rule34.xxx/index.php?page=dapi&s=post&q=index",
 
     // ? Config Stuff

@@ -1,6 +1,8 @@
 import axios from "axios"
 import c from "../constants";
-export default async function request(url: string, options:
+type site = "e621" | "e926" | "gelbooru" | "furrybot" | "yiffrest" | "sheri" | "floofy" | "shibe" | "fox" | "thaldrin"
+
+export default async function request(url: site, options:
     {
         endpoint?: string,
         category?: string,
@@ -125,7 +127,18 @@ export default async function request(url: string, options:
                 }
             })
             return randomfoxreq.data
-
+        case 'thaldrin':
+            let thaldrinreq = await axios({
+                method: 'get',
+                url: `${c.thaldrin}/categories/${options.endpoint}`,
+                headers: {
+                    "User-Agent": `${c.useragent} ${options.useragent || ""}`,
+                    ...(options.apikey ? {
+                        "Authorization": options.apikey
+                    } : {})
+                }
+            })
+            return thaldrinreq.data
 
         default:
             return {
