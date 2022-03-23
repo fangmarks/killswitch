@@ -18,6 +18,7 @@ export default async function request(url: site, options:
     switch (url) {
         case 'e621':
             if (!options.tags) throw Error("No Tags provided")
+            if (options.page && options.page > 750) throw Error("You cannot go beyond page 750")
             let e6request = await axios({
                 method: 'get',
                 params: {
@@ -48,6 +49,7 @@ export default async function request(url: site, options:
             return gelboorureq.data
         case 'e926':
             if (!options.tags) throw Error("No Tags provided")
+            if (options.page && options.page > 750) throw Error("You cannot go beyond page 750")
             let e9request = await axios({
                 method: 'get',
                 params: {
