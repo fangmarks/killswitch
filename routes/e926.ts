@@ -14,6 +14,7 @@ async function handler(req: Request, res: Response) {
     let tags = req.body.tags || req.query.tags
     let apikey = req.body.apikey || req.query.apikey
     let limit = Number(req.body.limit) || Number(req.query.limit)
+    let page = Number(req.body.page) || Number(req.query.page)
     let useragent = req.body.useragent
     if (isNaN(limit)) {
         limit = 1
@@ -28,6 +29,7 @@ async function handler(req: Request, res: Response) {
             tags,
             apikey,
             limit,
+            page,
             useragent
         })
 

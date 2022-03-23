@@ -9,6 +9,7 @@ export default async function request(url: site, options:
         tags?: string | string[],
         apikey?: string,
         limit?: number,
+        page?: number,
         useragent?: string
         animal?: string
     }) {
@@ -20,7 +21,7 @@ export default async function request(url: site, options:
             let e6request = await axios({
                 method: 'get',
                 params: {
-                    tags: `limit:${Number(options.limit) || 1} order:random -young ${options.tags.toString()}`,
+                    tags: `limit:${Number(options.limit) || 1}&page=${options.page || 1} order:random -young ${options.tags.toString()}`,
                 },
                 url: `${c.e621}/posts.json`,
                 headers: {
@@ -50,7 +51,7 @@ export default async function request(url: site, options:
             let e9request = await axios({
                 method: 'get',
                 params: {
-                    tags: `limit:${Number(options.limit) || 1} order:random -young ${options.tags.toString()}`,
+                    tags: `limit:${Number(options.limit) || 1}&page=${options.page || 1} order:random -young ${options.tags.toString()}`,
                 },
                 url: `${c.e926}/posts.json`,
                 headers: {
