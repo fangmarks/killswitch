@@ -16,7 +16,7 @@ export default {
     // "r34": "https://rule34.xxx/index.php?page=dapi&s=post&q=index",
 
     // ? Config Stuff
-    useragent: `Killswitch/v${pkg.version} (wrwlf.de/killswitch);`,
+    useragent: `Killswitch/v${pkg.version} (kji.tf/killswitch);`,
     port: process.env.PORT || 3000,
     log: 'killswitch.log',
     error: 'killswitch.error.log',
