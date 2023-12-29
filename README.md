@@ -1,6 +1,6 @@
 # Killswitch
 
-killswitch is a proxy api for [fangmarks/yiff](https://lio.to/yiff) and probably various other random image sites
+killswitch is a proxy api for [fangmarks/yiff](https://lio.to/yiff)
 
 Supported Sites:
 
@@ -11,14 +11,18 @@ Supported Sites:
 - [x] randomfox.ca
 - [x] gelbooru.com
 
+> [!NOTE]
 > If you don't see a site that's supported yet, but should be, open an Issue or if you're the owner of the API, make a PR!
 
+> [!NOTE]
 > Please include a Link to the Documentation of the API, if possible, otherwise a Link to a Discord Server\* where I can ask questions is also ok!
 
 \*_(Don't Advertise random Servers that have noting to do with a API/Service or you'll be banned from this Repo)_
 
 > [!IMPORTANT]
 > Support for Sheri has been dropped due to me being unable to test it, if you want to add support for it, feel free to make a PR
+
+> [!IMPORTANT]
 > Support for the Thaldrin and Floofy.dev API has been dropped to both of them being discontinued
 
 # Usage
