@@ -1,7 +1,7 @@
 {
   "name": "killswitch",
   "version": "1.2.0",
-  "description": "killswitch is a proxy api for [hokkqi/yiff](https://wrwlf.de/yiff)",
+  "description": "killswitch is a proxy api for [fangmarks/yiff](https://lio.to/yiff)",
   "main": "build/index.js",
   "dependencies": {
     "@sniff/armpits": "0.0.7",
@@ -20,13 +20,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hokkqi/killswitch.git"
+    "url": "git+https://github.com/fangmarks/killswitch.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/hokkqi/killswitch/issues"
+    "url": "https://github.com/fangmarks/killswitch/issues"
   },
-  "homepage": "https://github.com/hokkqi/killswitch#readme"
+  "homepage": "https://github.com/fangmarks/killswitch#readme"
 }

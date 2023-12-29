@@ -1,6 +1,6 @@
 import axios from "axios"
 import c from "../constants";
-type site = "e621" | "e926" | "gelbooru" | "furrybot" | "yiffrest" | "sheri" | "floofy" | "shibe" | "fox" | "thaldrin"
+type site = "e621" | "e926" | "gelbooru" | "furrybot" | "yiffrest" | "sheri" | "shibe" | "fox" // | "floofy"  |  "thaldrin"
 
 export default async function request(url: site, options:
     {
@@ -79,33 +79,6 @@ export default async function request(url: site, options:
                 }
             })
             return yiffreq.data
-        case 'sheri':
-            let sherireq = await axios({
-                method: 'get',
-                params: {
-                    format: "json"
-                },
-                url: `${c.sheri}/${options.endpoint}`,
-                headers: {
-                    "User-Agent": `${c.useragent} ${options.useragent || ""}`,
-                    ...(options.apikey ? {
-                        "Authorization": options.apikey
-                    } : {})
-                }
-            })
-            return sherireq.data
-        case 'floofy':
-            let floofyreq = await axios({
-                method: 'get',
-                url: `${c.floofy}/yiff`,
-                headers: {
-                    "User-Agent": `${c.useragent} ${options.useragent || ""}`,
-                    // ...(options.apikey ? {
-                    //     "Authorization": options.apikey
-                    // } : {})
-                }
-            })
-            return floofyreq.data
         case 'shibe':
             let shibereq = await axios({
                 method: 'get',
@@ -130,19 +103,6 @@ export default async function request(url: site, options:
                 }
             })
             return randomfoxreq.data
-        case 'thaldrin':
-            let thaldrinreq = await axios({
-                method: 'get',
-                url: `${c.thaldrin}/categories/${options.endpoint}`,
-                headers: {
-                    "User-Agent": `${c.useragent} ${options.useragent || ""}`,
-                    ...(options.apikey ? {
-                        "Authorization": options.apikey
-                    } : {})
-                }
-            })
-            return thaldrinreq.data
-
         default:
             return {
                 success: false,
