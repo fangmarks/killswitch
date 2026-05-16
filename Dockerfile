@@ -1,17 +1,13 @@
-FROM node:alpine
-WORKDIR /opt/killswitch
+FROM denoland/deno:alpine
 
-ARG PORT
-ARG REDIRECT
+WORKDIR /app
 
-ENV PORT=${PORT}
-ENV REDIRECT=${REDIRECT}
-
-
-EXPOSE ${PORT}
+COPY deno.json deno.lock ./
+RUN deno install
 
 COPY . .
-RUN npm i
-RUN npm run build
 
-ENTRYPOINT [ "npm", "run", "start" ]
+ENV PORT=8000
+EXPOSE ${PORT}
+
+ENTRYPOINT ["deno", "run", "--allow-net", "--allow-env", "main.ts"]

@@ -1,71 +1,69 @@
 # Killswitch
 
-killswitch is a proxy api for [fangmarks/yiff](https://lio.to/yiff)
+killswitch is a proxy API for [fangmarks/yiff](https://lio.to/yiff)
 
-Supported Sites:
+### Supported Sites
 
 - [x] e621.net
 - [x] e926.net
-- [x] yiff.rest
-- [x] shibe.online
-- [x] randomfox.ca
+- [x] danbooru.donmai.us
 - [x] gelbooru.com
+- [x] yiff.rest
+- [x] randomfox.ca
+
+### Dropped Sites
+
+- sheri.bot — API key revoked, unable to maintain
+- shibe.online — domain expired, API is dead
+- thaldr.in — API never launched
+- floofy.dev — API discontinued
 
 > [!NOTE]
-> If you don't see a site that's supported yet, but should be, open an Issue or if you're the owner of the API, make a PR!
+> If a site you want is missing, open an issue. If you own the API, a PR is welcome — include a link to the docs or a Discord where questions can be asked.
 
-> [!NOTE]
-> Please include a Link to the Documentation of the API, if possible, otherwise a Link to a Discord Server\* where I can ask questions is also ok!
+## Usage
 
-\*_(Don't Advertise random Servers that have noting to do with a API/Service or you'll be banned from this Repo)_
+Requires Docker, or Deno 2+ and Git.
 
-> [!IMPORTANT]
-> Support for Sheri has been dropped due to me being unable to test it, if you want to add support for it, feel free to make a PR
+### Docker
 
-> [!IMPORTANT]
-> Support for the Thaldrin and Floofy.dev API has been dropped to both of them being discontinued
-
-# Usage
-
-All of these examples require you to have either Docker or Node and Git installed
-
-## Usage through Docker
-
-Setting up a Killswitch Instance is as easy as running
-
-```zsh
-sudo docker run -p 42069:3000 -d hokkqi/killswitch
+```sh
+docker run -p 8000:8000 -d ghcr.io/fangmarks/killswitch
 ```
 
-**NOTE:** By default, Killswitch redirects to [the Wiki] if no `REDIRECT` Environment Variable is provided.
+Pass environment variables with `-e`:
 
-## Building the Docker Image yourself (with custom options)
+```sh
+docker run -p 8000:8000 -e PORT=3000 -d ghcr.io/fangmarks/killswitch
+```
 
-```zsh
-git clone https://github.com/fangmarks/killswitch
+### Deno
 
+```sh
+git clone https://ghcr.io/fangmarks/killswitch
 cd killswitch
-
-sudo docker build --build-arg PORT=YourPort --build-arg REDIRECT=https://your.site -t hokkqi/killswitch .
+deno task start
 ```
 
-## Node / TS-Node
+## Routes
 
-```zsh
-git clone https://github.com/fangmarks/killswitch
+All routes accept `GET` (query params) or `POST` (JSON body).
 
-cd killswitch
+| Route | Aliases | Required params | Optional params |
+|---|---|---|---|
+| `/e621` | `/e6` | `tags` | `limit`, `page`, `apikey` |
+| `/e926` | `/e9` | `tags` | `limit`, `page`, `apikey` |
+| `/danbooru` | — | `tags` | `limit`, `apikey` |
+| `/gelbooru` | `/gel` | `tags` | `limit`, `api_key`, `user_id` |
+| `/yiffrest/:category` | — | — | `amount`, `apikey` |
+| `/randomfox` | `/fox` | — | — |
 
-#Node
-npm run build && npm run start
+`apikey` / `Authorization` header are forwarded to the upstream API. For e621/e926/danbooru, credentials should be `username:apikey` (Basic auth is handled by the [yiff](https://lio.to/yiff) client). For yiffrest, pass the raw API token.
 
-#TS-Node
-ts-node index.ts
+## Environment Variables
 
-```
-
-# Docs
-
-For Docs, see [the Wiki]
-
-[the wiki]: https://github.com/farngmarks/killswitch/wiki
+| Variable | Default | Description |
+|---|---|---|
+| `PORT` | `8000` | Port the server listens on |
+| `REDIRECT` | GitHub wiki URL | Redirect destination for `GET /` |
+| `DISABLE_DEFAULT_TAGS` | unset | Set to any value to disable `order:random`, `-young`, `sort:random` default tags |

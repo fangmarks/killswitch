@@ -1,0 +1,36 @@
+{
+  "version": "5",
+  "specifiers": {
+    "jsr:@hono/hono@^4.6.13": "4.6.13",
+    "jsr:@std/dotenv@*": "0.225.3"
+  },
+  "jsr": {
+    "@hono/hono@4.6.13": {
+      "integrity": "198970fc6facf71a88ee57aa1ed32143b56bcb0f842fa965ca3ee7d6fdd21a8e"
+    },
+    "@std/dotenv@0.225.3": {
+      "integrity": "a95e5b812c27b0854c52acbae215856d9cce9d4bbf774d938c51d212711e8d4a"
+    }
+  },
+  "npm": {
+    "ky@1.7.3": {
+      "integrity": "sha512-Sz49ZWR/BjNOq+2UK1k9ONZUVq8eyuCj30Zgc8VrRNtFlTBZduzuvehUd5kjQF6/Fms3Ir3EYqzJryw9tRvsSw=="
+    }
+  },
+  "workspace": {
+    "dependencies": [
+      "jsr:@hono/hono@^4.6.13"
+    ],
+    "packageJson": {
+      "dependencies": [
+        "npm:@sniff/armpits@0.0.7",
+        "npm:@types/node@^14.14.37",
+        "npm:axios@~0.21.1",
+        "npm:dotenv@^8.2.0",
+        "npm:express@^4.17.1",
+        "npm:typescript@^4.2.3",
+        "npm:winston@^3.3.3"
+      ]
+    }
+  }
+}
